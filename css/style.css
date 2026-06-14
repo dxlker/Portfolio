@@ -5,88 +5,334 @@
   --gray: #c7c7c7;
 }
 
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+body{
   background-color: var(--bg);
   color: var(--white);
   font-family: "Silkscreen", monospace;
   letter-spacing: 0.15em;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+  line-height: 1.6;
 }
 
-.glow {
+/*homepage*/
+.glow{
   position: fixed;
   top: 15%;
   right: -10%;
   width: 1000px;
   height: 1000px;
-  background: radial-gradient(circle, var(--pink) 0%, var(--pink) 60%, transparent 75%);
-  border-radius: 0%;
+  background: radial-gradient(circle, var(--pink) 0%, transparent 75%);
   filter: blur(40px);
   z-index: 0;
 }
 
-.container {
+.container{
   position: relative;
   z-index: 1;
   padding: 60px 70px;
   min-height: 100vh;
 }
 
-.name {
+.name{
   font-size: 46px;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--pink);
   margin-bottom: 200px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(169, 24, 91, 0.5);
 }
 
-nav ul {
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul{
   list-style: none;
 }
 
-nav li {
+nav li{
   font-size: 30px;
   margin-bottom: 45px;
   cursor: pointer;
-  transition: color;
+  transition: all 0.3s ease;
   width: fit-content;
 }
 
-nav li a {
+a:focus,
+button:focus{
+  outline: 3px solid var(--pink);
+  outline-offset: 5px;
+}
+
+nav li a{
   color: var(--gray);
   text-decoration: none;
 }
 
-nav li:hover {
-  color: var(--pink);
+nav li:hover{
   transform: translateX(10px);
 }
 
-nav li:hover a {
+nav li:hover,
+nav li:hover a{
   color: var(--pink);
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container{
     padding: 40px 30px;
   }
-  .name {
+  .name{
     font-size: 24px;
     margin-bottom: 80px;
   }
-  nav li {
+  nav li{
     font-size: 18px;
     margin-bottom: 35px;
   }
-  .glow {
+  .glow{
     width: 400px;
     height: 400px;
   }
+}
+/*end homepage */
+
+/* cv*/
+.cv, .over-mij, .projecten, .contact{
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  left: auto;
+  transform: translateY(-50%) scale(0.9);
+  width: 900px;
+  max-width: 90vw;
+  height: 92vh;
+  background-color: #c0c0c0;
+  border: 2px solid #ffffff;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+  font-family: "Tahoma", sans-serif;
+  color: #000000;
+  z-index: 999;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cv.active, .over-mij.active, .projecten.active, .contact.active{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+}
+
+.cv__titlebar, .over-mij__titlebar, .projecten__titlebar, .contact__titlebar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--pink);
+  color: var(--white);
+}
+
+.cv__titlebar h2, .over-mij__titlebar h2, .projecten__titlebar h2, .contact__titlebar h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.cv__controls, .over-mij__controls, .projecten__controls, .contact__controls{
+  display: flex;
+  gap: 4px;
+}
+
+.cv__controls button, .over-mij__controls button, .projecten__close, .contact__close{
+  width: 22px;
+  height: 20px;
+  background-color: #c0c0c0;
+  border: 1px solid #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cv__close, .over-mij__close, .projecten__close, .contact__close{
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+.cv__body, .over-mij__body, .projecten__body, .contact__body{
+  flex: 1;
+  background-color: #808080;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv__pdf, .projecten__frame, .projecten iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #ffffff;
+}
+
+/* Over mij */
+.over-mij__text{
+  padding: 24px;
+  overflow-y: auto;
+  font-size: 16px;
+  background-color: #808080;
+  color: var(--white);
+}
+
+.cv-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.cv-overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px){
+  .cv, .over-mij, .projecten, .contact {
+    width: 95vw;
+    height: 85vh;
+    right: 50%;
+    transform: translate(50%, -50%) scale(0.9);
+  }
+  .cv.active, .over-mij.active, .projecten.active, .contact.active {
+    transform: translate(50%, -50%) scale(1);
+  }
+}
+/*end cv */
+
+@media (max-width: 768px){
+  .projecten {
+    width: 95vw;
+    height: 85vh;
+  }
+}
+
+/* Contact Formulier */
+.contact__form{
+  background-color: #c0c0c0;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-group input, .form-group textarea{
+  padding: 8px;
+  font-family: "Tahoma", sans-serif;
+  font-size: 14px;
+  border: 2px solid #808080;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus{
+  border-color: var(--pink);
+}
+
+.form-submit{
+  align-self: flex-start;
+  padding: 6px 20px;
+  background-color: #c0c0c0;
+  border: 2px solid #ffffff;
+  font-family: "Tahoma", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.form-submit:active{
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+/* porject error fix */
+.project-image{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 15px;
+  border: 2px solid var(--pink);
+}
+
+.project ul {
+  list-style: none !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.project li {
+  font-family: "Tahoma", sans-serif;
+  letter-spacing: normal;
+  background-color: #808080;
+  color: #ffffff;
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.project h2 {
+  color: var(--pink);
+  margin-bottom: 15px;
+}
+
+.project h3 {
+  font-size: 16px;
+  margin: 15px 0 5px 0;
+  font-family: "Tahoma", sans-serif;
+  letter-spacing: normal;
+  color: #eeeeee;
+}
+
+.project p {
+  font-family: "Tahoma", sans-serif;
+  letter-spacing: normal;
+  max-width: 600px;
+  color: #ffffff;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #808080;
+  margin: 40px 0;
 }

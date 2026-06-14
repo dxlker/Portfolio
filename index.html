@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio - Tseten Lobsang</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +16,82 @@
     <div class="container">
         <h1 class="name">Tseten Lobsang</h1>
 
-            <nav>
-                <ul>
-                    <li><a href="#about">About me</a></li>
-                    <li><a href="#projects">My projects</a></li>
-                    <li><a href="#contact">Contact me</a></li>
-                    <li><a href="#resume">My resume</a></li>
-                </ul>
-            </nav>
-  </div>
-    
+        <nav>
+            <ul>
+                <li><a href="#" id="about-btn">About me</a></li>
+                <li><a href="#" id="projecten-btn">My projects</a></li>
+                <li><a href="#" id="contact-btn">Contact me</a></li>
+                <li><a href="#" id="resume-btn">My resume</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="cv-overlay" id="cv-overlay"></div>
+
+    <aside class="cv" id="resume-window">
+        <div class="cv__titlebar">
+            <h2>CV</h2>
+            <div class="cv__controls">
+                <button class="cv__close" aria-label="Close">X</button>
+            </div>
+        </div>
+        <div class="cv__body">
+            <iframe src="./images/Tseten Lobsang CV.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Resume PDF" class="cv__pdf"></iframe>
+        </div>
+    </aside>
+
+    <aside class="over-mij" id="about-window">
+        <div class="over-mij__titlebar">
+            <h2>Over mij</h2>
+            <div class="over-mij__controls">
+                <button class="over-mij__close" aria-label="Close">X</button>
+            </div>
+        </div>
+        <div class="over-mij__body">
+            <div class="over-mij__text">
+                <p>Ik ben een student Software Developer met interesse in zowel front-end als back-end development. Vooral het bouwen van websites en applicaties spreekt mij aan, omdat ik daarin techniek en creativiteit kan combineren. Ik werk serieus aan mijn opleiding, leer graag nieuwe dingen en vind het belangrijk om mezelf te blijven ontwikkelen binnen software development.</p>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="projecten" id="projects-window">
+        <div class="projecten__titlebar">
+            <h2>My Projects</h2>
+            <div class="projecten__controls">
+                <button class="projecten__close" aria-label="Close">X</button>
+            </div>
+        </div>
+        <div class="projecten__body">
+            <iframe src="project.html" title="Mijn projecten" class="projecten__frame"></iframe>
+        </div>
+    </aside>
+
+    <aside class="contact" id="contact-window">
+        <div class="contact__titlebar">
+            <h2>Contact Me</h2>
+            <div class="contact__controls">
+                <button class="contact__close" aria-label="Close">X</button>
+            </div>
+        </div>
+        <div class="contact__body">
+            <form class="contact__form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="naam">Naam:</label>
+                    <input type="text" id="naam" name="naam" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="bericht">Bericht:</label>
+                    <textarea id="bericht" name="bericht" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Verzenden</button>
+            </form>
+        </div>
+    </aside>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
