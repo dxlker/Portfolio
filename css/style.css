@@ -336,3 +336,15 @@ hr {
   background: #808080;
   margin: 40px 0;
 }
+
+h1.name {
+  margin-bottom: 20px !important;
+}
+
+.container:not(:has(.project)) .name {
+  margin-bottom: 200px !important;
+}
+
+.container:has(.project) .name {
+  margin-bottom: 20px !important;
+}

@@ -7,63 +7,44 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="container">
 
-<div class="container">
+    <h1 class="name">Mijn Projecten</h1>
 
-    <h1>Mijn Projecten</h1>
+    <div class="filter-controls" style="margin-bottom: 20px; font-family: 'Tahoma', sans-serif;">
+        <input type="text" id="project-search" placeholder="Zoek project of techniek..." style="padding: 8px; width: 250px; border: 2px solid #808080;">
+        <span id="project-counter" style="margin-left: 15px; font-weight: bold; color: #eeeeee;">2 projecten gevonden</span>
+    </div>
 
-    <article class="project">
+    <article class="project" data-title="taxcheck" data-tags="laravel php mysql docker tailwind css javascript">
         <h2>TaxCheck</h2>
-
-        <img
-            src="./images/taxcheck.png"
-            alt="Screenshot van de TaxCheck applicatie"
-            class="project-image">
-
+        <img src="./images/taxcheck.png" alt="Screenshot van de TaxCheck applicatie" class="project-image">
         <h3>Beschrijving</h3>
-        <p>
-            Een Laravel applicatie met authenticatie, gebruikersbeheer en
-            admin functionaliteiten. De applicatie maakt gebruik van MySQL
-            en Docker, en biedt statistieken en CSV-exports.
-        </p>
-
+        <p>Een Laravel applicatie met authenticatie, gebruikersbeheer en admin functionaliteiten.</p>
         <h3>Gebruikte technieken</h3>
         <ul>
-            <li>Laravel</li>
-            <li>PHP</li>
-            <li>MySQL</li>
-            <li>Docker</li>
-            <li>Tailwind CSS</li>
-            <li>JavaScript</li>
+            <li>Laravel</li><li>PHP</li><li>MySQL</li><li>Docker</li><li>Tailwind CSS</li><li>JavaScript</li>
         </ul>
     </article>
 
     <hr>
 
-    <article class="project">
+    <article class="project" data-title="punch & paws" data-tags="php sql html css">
         <h2>Punch &amp; Paws</h2>
-
-        <img
-            src="./images/punch&paws.png"
-            alt="Screenshot van de Punch & Paws sportclub website"
-            class="project-image">
-
+        <img src="/images/punch&paws.png" alt="Screenshot van de Punch & Paws sportclub website" class="project-image">
         <h3>Beschrijving</h3>
-        <p>
-            Een sportclub website met een agenda en informatiepagina's,
-            gebouwd met dynamische content vanuit een database.
-        </p>
-
+        <p>Een sportclub website met een agenda en informatiepagina's, gebouwd met dynamische content.</p>
         <h3>Gebruikte technieken</h3>
         <ul>
-            <li>PHP</li>
-            <li>SQL</li>
-            <li>HTML</li>
-            <li>CSS</li>
+            <li>PHP</li><li>SQL</li><li>HTML</li><li>CSS</li>
         </ul>
     </article>
 
 </div>
+
+<script src="./js/filter.js"></script>
+
+
 
 </body>
 </html>
